@@ -2,7 +2,7 @@
 
 Takes SLEAP-tracked videos and calculates angle speed and turn duration.
 
-Angle calculations: Xingeng Zhang, Anindita Chavan
+Angle calculations: Xingeng Zhang, Anindita Chavan</p>
 Analysis: Madeline Berns
 
 ## Table of Contents
