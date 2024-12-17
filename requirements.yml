@@ -1,0 +1,13 @@
+name: angle_env
+dependencies:
+- h5py
+- keyboard
+- matplotlib
+- numpy
+- opencv_python
+- pandas
+- scikit_learn
+- seaborn
+- graphviz
+- tkinter
+- statsmodels
