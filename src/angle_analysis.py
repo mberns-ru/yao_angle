@@ -31,14 +31,12 @@ def run_analysis(data_folder):
     nihl_incorrs = {}
 
     for folder in folders:
-        print(folder)
         # Folder name format: 'animal_id hearing_status'
 
         folder_parsed = folder.split('_')
         hearing_status = folder_parsed[-1]
         animal_id = folder_parsed[-2][-3:]
 
-        print(animal_id, hearing_status)
         corrs, incorrs = extract_data(folder)
 
         corr_times = {'turn dur': corrs}
@@ -64,7 +62,6 @@ def run_analysis(data_folder):
     for id in nh_corrs.keys():
 
         if id in nihl_corrs.keys():
-            print(id)
             graph_data(id, nh_corrs[id], nihl_corrs[id], nh_incorrs[id], nihl_incorrs[id], output_folder)
 
         else:
@@ -130,7 +127,7 @@ def run_anova(nh_corrs, nihl_corrs, nh_incorrs, nihl_incorrs, output_folder):
     # Run a mixed model 2-way ANOVA
     model = smf.mixedlm("Q('Average Turn Duration') ~ Q('Hearing Status') * Q('Score')", data, groups=data["Subject"])
     result = model.fit()
-    print(result.summary())
+    #print(result.summary())
 
     # Save the summary to a text file
     with open(output_folder / 'anova_summary.txt', 'w') as f:
@@ -144,7 +141,7 @@ def run_indiv_anova(nh_corrs, nihl_corrs, nh_incorrs, nihl_incorrs, output_folde
         # Iterate over subjects
         for subject_id in nh_corrs.keys():
 
-            print(subject_id)
+            #print(subject_id)
             # Combine data for the subject
             data = {
                 'turn_duration': nh_corrs[subject_id] + nihl_corrs[subject_id] + nh_incorrs[subject_id] + nihl_incorrs[subject_id],
